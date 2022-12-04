@@ -76,9 +76,10 @@ SSID = "U+Net454C"
 PASSWORD = "DDAE014478"
 ```
 
+---
 ## firebase to node red
 참고. [https://nodered.org/docs/getting-started/windows#running-on-windows](https://nodered.org/docs/getting-started/windows#running-on-windows)
-
+---
 ### 1. node 홈페이지에서 node red 설치(https://nodejs.org/en/)
 ### 2. node, npm 버전 확인
 ```
