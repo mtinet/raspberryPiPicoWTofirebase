@@ -1,8 +1,22 @@
 # raspberryPiPicoWTofirebase
 
-## main.py
+### firebase.google.com에 들어가서 로그인 하고 우측 상단의 '콘솔로 이동' 버튼을 누름. '프로젝트 추가'버튼을 눌러 자신의 프로젝트를 만듬  
+<img width="863" alt="firebase" src="https://user-images.githubusercontent.com/13882302/205473085-8a1656dc-c96a-462f-a681-85ae4f668cc4.png">
+
+### 프로젝트가 생성되면 realtime database를 클릭해서 생성함  
+<img width="683" alt="realtime check" src="https://user-images.githubusercontent.com/13882302/205473088-ba87fa56-148a-4e04-9e81-959a8813a524.png">
+
+### '데이터' 탭에서 보여지는 주소가 여러분의 리얼타임 데이터베이스를 사용하기 위한 주소임  
+<img width="749" alt="1" src="https://user-images.githubusercontent.com/13882302/205473090-29d787b6-e11f-41b3-841c-88a1e18a6962.png">  
+
+### '규칙' 탭에 가서 규칙을 아무나 쓰고 지울 수 있게 세팅을 해야 DB의 json파일에 GET, POST, PUT, PATCH, DELETE 할 수 있음, 따라서 주소에 대한 보안 유의 철저 필요  
+<img width="779" alt="2" src="https://user-images.githubusercontent.com/13882302/205473092-d51ab39e-aee2-453f-ba26-7c354953f1af.png">
+
+
 <img width="877" alt="firebase realtime db" src="https://user-images.githubusercontent.com/13882302/205472925-88301bd7-5b7a-427b-bb56-d9d06c549229.png">
 
+# 파이썬 코드(micropython on raspberry pi pico w)
+## main.py
 ```python 
 from machine import Pin, I2C
 import network
