@@ -33,11 +33,11 @@ print(response.content)
 myobj = {'somekey': 'somevalue'}
 urequests.post(url+".json", json = myobj)
 
-# 객체 교체하기, 특정 주소의 데이터가 변경됨
+# 객체 교체하기, 특정 주소(ex. test.json)의 데이터가 통으로 변경됨, 만약 기존의 다른 값이 있었다면 다 삭제됨
 myobj = {'ahha': 'jaja'}
 urequests.put(url+"test.json", json = myobj)
 
-# 객체 교체하기, 특정 주소의 데이터가 변경됨
+# 객체 교체하기, 특정 값만 바뀜
 myobj = {'hhhggfggff': 'ssssssss'}
 urequests.patch(url+"test.json", json = myobj)
 
