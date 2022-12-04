@@ -1,6 +1,8 @@
 # raspberryPiPicoWTofirebase
 
 ## main.py
+<img width="877" alt="firebase realtime db" src="https://user-images.githubusercontent.com/13882302/205472925-88301bd7-5b7a-427b-bb56-d9d06c549229.png">
+
 ```python 
 from machine import Pin, I2C
 import network
