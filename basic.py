@@ -17,7 +17,7 @@ response = urequests.get(url+".json")
 print(response.content)
 
 # 객체 교체하기, 특정 주소의 데이터가 변경됨
-myobj = {'humi': '233'}
+myobj = {'humi': '70'}
 urequests.patch(url+"smartFarm.json", json = myobj)
 
 
