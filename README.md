@@ -1,5 +1,6 @@
 # raspberryPiPicoWTofirebase
 
+## main.py
 ```python 
 from machine import Pin, I2C
 import network
@@ -50,4 +51,10 @@ urequests.delete(url+"test.json")
 response = urequests.get(url+".json")
 print(response.content)
 
+```
+
+secrets.py
+```python
+SSID = "U+Net454C"
+PASSWORD = "DDAE014478"
 ```
