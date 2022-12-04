@@ -42,7 +42,7 @@ myobj = {'hhhggfggff': 'ssssssss'}
 urequests.patch(url+"test.json", json = myobj)
 
 # 객체 삭제
-urequests.delete(url+"test.json")
+# urequests.delete(url+"test.json")
 
 response = urequests.get(url+".json")
 print(response.content)
