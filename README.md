@@ -1,6 +1,6 @@
 # raspberryPiPicoWTofirebase
 
-'''python 
+```python 
 from machine import Pin, I2C
 import network
 import utime
@@ -50,4 +50,4 @@ urequests.delete(url+"test.json")
 response = urequests.get(url+".json")
 print(response.content)
 
-'''
+```
