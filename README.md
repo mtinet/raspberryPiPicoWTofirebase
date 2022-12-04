@@ -77,11 +77,26 @@ PASSWORD = "DDAE014478"
 ```
 
 ---
-## firebase to node red
+## firebase to Node-RED
 참고. [https://nodered.org/docs/getting-started/windows#running-on-windows](https://nodered.org/docs/getting-started/windows#running-on-windows)
 
-### 1. node 홈페이지에서 node red 설치(https://nodejs.org/en/)
-### 2. node, npm 버전 확인
+### 1. Node 홈페이지에서 Node-RED 설치(https://nodejs.org/en/)
+
+### 2. Node, npm 버전 확인
 ```
 node --version && npm --version
 ```
+
+### 3. Node-RED 설치
+```
+npm install -g --unsafe-perm node-red
+```
+
+### 4. cmd 창을 열고 Node-RED 실행
+```
+node-red
+```
+
+### 5. Node-RED에 접속
+브라우저를 열고 아래 주소로 접속한다.
+http://127.0.0.1:1880/
