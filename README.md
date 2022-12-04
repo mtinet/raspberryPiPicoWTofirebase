@@ -1,6 +1,6 @@
 # raspberryPiPicoWTofirebase
 
-## Raspberry Pi Pico W to firebase 
+## - Raspberry Pi Pico W to firebase 
 ### 1. firebase.google.com에 들어가서 로그인 하고 우측 상단의 '콘솔로 이동' 버튼을 누름. '프로젝트 추가'버튼을 눌러 자신의 프로젝트를 만듬  
 <img width="863" alt="firebase" src="https://user-images.githubusercontent.com/13882302/205473085-8a1656dc-c96a-462f-a681-85ae4f668cc4.png">
 
@@ -76,7 +76,7 @@ SSID = "U+Net454C"
 PASSWORD = "DDAE014478"
 ```
 
-## firebase to node red
+## - firebase to node red
 참고. [https://nodered.org/docs/getting-started/windows#running-on-windows](https://nodered.org/docs/getting-started/windows#running-on-windows)
 
 ### 1. node 홈페이지에서 node red 설치(https://nodejs.org/en/)
