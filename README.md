@@ -16,7 +16,7 @@ wlan.connect(secrets.SSID, secrets.PASSWORD)
 print(wlan.isconnected())
 print(wlan.ifconfig())
 
-url = "https://smartfarm-f867f-default-rtdb.firebaseio.com/"
+url = "자신의 파이어베이스 리얼타임 데이터베이스 주소를 넣을 것"
 
 # get: 리스트 가져오기
 # get+데이터 주소: 단일 데이터 가져오기
