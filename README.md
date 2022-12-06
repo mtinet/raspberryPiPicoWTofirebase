@@ -17,7 +17,7 @@
 ### 리얼타임 데이터베이스의 주소 위치
 <img width="877" alt="firebase realtime db" src="https://user-images.githubusercontent.com/13882302/205472925-88301bd7-5b7a-427b-bb56-d9d06c549229.png">
 
-#### main.py
+#### usage.py
 ```python 
 from machine import Pin, I2C
 import network
