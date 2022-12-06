@@ -1,12 +1,15 @@
 let button;
+let humi = 0;
+let temp = 0;
+let ledStatus = Boolean(false);
 
 function setup() {
   createCanvas(400, 400);
   background(200);
   
   button = createButton('click me');
-  button.position(0, 0);
-  button.mousePressed(changeBG);
+  button.position(width*8/10, height*9/10);
+  button.mousePressed(ledOnOff);
 
   // Initialize Firebase
   var config = {
@@ -32,6 +35,12 @@ function gotData(data) {
   //console.log(keys);
   var values = Object.values(val);
   //console.log(values);
+  
+  humi = val.humi;
+  temp = val.temp;
+  ledStatus = val.led;
+  //console.log(val.humi)
+  //console.log(val.temp)
 
   for (var i = 0; i < keys.length; i++) {
     var k = keys[i];
@@ -48,11 +57,38 @@ function errData(err) {
 }
 
 function draw() {
-  textSize(100);
+  background(200);
+  fill(0);
+  textSize(80);
   textAlign(CENTER);
-  text("점수", width / 2, height / 2);
+  
+  text("습도 : " + humi, width / 2, height * 1 / 4);
+  text("온도 : " + temp, width / 2, height * 2 / 4);
+  
+  if (ledStatus == 0) {
+    fill(0, 0, 0);
+    ellipse(width/2, height * 3.5 / 5, 100, 100);
+  } else {
+    fill(255, 0, 0);
+    ellipse(width/2, height * 3.5 / 5, 100, 100);
+  }
 }
 
-function changeBG() {
-  background(random(255), random(255), random(255));
+function ledOnOff() {
+  if (ledStatus == false) {
+    ledStatus = true;
+    
+    var ref = database.ref('smartFarm');
+    ref.update({
+      led: 1
+    })
+  } else {
+    ledStatus = false;
+    
+    var ref = database.ref('smartFarm');
+    ref.update({
+      led: 0
+    })
+  }
+  //console.log(ledStatus);
 }
