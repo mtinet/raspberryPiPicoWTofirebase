@@ -10,11 +10,11 @@ led = Pin(27, Pin.OUT)
 # Connect Internet by WiFi
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect("U+Net454C", "DDAE014478")
+wlan.connect(secrets.SSID, secrets.PASSWORD)
 print(wlan.isconnected())
 print(wlan.ifconfig())
 
-url = "https://smartfarm-f867f-default-rtdb.firebaseio.com/"
+url = "자신의 파이어베이스 리얼타임 데이터베이스 주소를 넣을 것"
 
 # DB 내역 가져오기
 response = urequests.get(url+".json").json()
