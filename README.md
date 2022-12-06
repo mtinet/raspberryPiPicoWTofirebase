@@ -46,7 +46,7 @@ url = "자신의 파이어베이스 리얼타임 데이터베이스 주소를 �
 response = urequests.get(url+".json")
 print(response.content)
 
-# json파일 중 일부 가져오기
+# json파일 중 일부 가져오기, 아래의 .json 앞쪽은 이전에 자동으로 올린 자료의 ID라고 보면됨. 따라서 자신의 리얼타임 DB에 없을 수 있음
 response = urequests.get(url+"-NIPukhnX6qkPVb-P6Eh.json")
 print(response.content)
 
