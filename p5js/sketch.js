@@ -34,17 +34,17 @@ function setup() {
 function gotData (data) {
   	//console.log(data.val());
 	var val = data.val();
-    //console.log(val);
+    console.log(val);
   	var keys = Object.keys(val);
-  	//console.log(keys);
-    var values = Object.values(val)[0];
-    //console.log(values);
+  	console.log(keys);
+    var values = Object.values(val);
+    console.log(values);
   
 	for (var i = 0; i < keys.length; i++) {
 	  var k = keys[i];
-      //console.log(k)
+      console.log(k)
       var v = values[i];
-      //console.log(v);
+      console.log(v);
       console.log(k + ":" + v)
 	}
 }
@@ -76,5 +76,3 @@ function submitScore() {
   	//console.log(data);
   	score = 0;
 }
-
-
