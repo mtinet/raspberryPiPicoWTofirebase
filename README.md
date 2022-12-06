@@ -70,6 +70,61 @@ print(response.content)
 
 ```
 
+## boot.py, main.py, secrets.py
+- Blink 수준의 파일은 main.py만으로도 전원을 연결하면 자동으로 실행됨
+- 와이파이를 사용하는 경우 boot.py 파일을 따로 만들어서 사용해야 자동 실행이 됨
+- boot.py 파일 안에는 main파일을 임포트 하는 코드가 필요함
+- secrets.py 파일에는 와이파이 SSID, Password가 들어 있음
+
+#### boot.py
+```python 
+from machine import Pin
+from utime import sleep
+import main
+```
+
+#### main.py
+```python
+from machine import Pin, I2C
+import network
+import time
+import urequests
+import random
+
+# 제어할 핀 번호 설정
+from machine import Pin
+led = Pin(27, Pin.OUT)
+
+# 와이파이 연결하기
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+print(wlan.ifconfig())
+
+url = "자신의 파이어베이스 리얼타임 데이터베이스 주소를 넣을 것"
+
+# DB 내역 가져오기
+response = urequests.get(url+".json").json()
+# byte형태의 데이터를 json으로 변경했기 때문에 메모리를 닫아주는 일을 하지 않아도 됨 
+# print(response)
+# print(response['smartFarm'])
+# print(response['smartFarm']['led'])
+
+while True:
+    # 현재 DB의 정보를 가져옴
+    response = urequests.get(url+".json").json()
+    # 현재 DB의 led 키 값의 상태에 따라 led 27번을 제어
+    if (response['smartFarm']['led'] == 0) :
+        led.value(0)
+    else :
+        led.value(1)
+        
+    # 객체 교체하기, 특정 주소의 데이터가 변경됨
+    myobj = {'humi': random.randrange(0,100), 'temp': random.randrange(0, 50)}
+    urequests.patch(url+"smartFarm.json", json = myobj).json()
+```
+
 #### secrets.py
 ```python
 SSID = "U+Net454C"
