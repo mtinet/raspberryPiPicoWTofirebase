@@ -4,10 +4,11 @@ import time
 import urequests
 import random
 
+# 제어할 핀 번호 설정
 from machine import Pin
 led = Pin(27, Pin.OUT)
 
-# Connect Internet by WiFi
+# 와이파이 연결하기
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 wlan.connect(secrets.SSID, secrets.PASSWORD)
@@ -24,7 +25,9 @@ response = urequests.get(url+".json").json()
 # print(response['smartFarm']['led'])
 
 while True:
+    # 현재 DB의 정보를 가져옴
     response = urequests.get(url+".json").json()
+    # 현재 DB의 led 키 값의 상태에 따라 led 27번을 제어
     if (response['smartFarm']['led'] == 0) :
         led.value(0)
     else :
