@@ -1,7 +1,7 @@
 # raspberryPiPicoWTofirebase
 
 ## Raspberry Pi Pico W to firebase 
-### - firebase.google.com에 들어가서 로그인 하고 우측 상단의 '콘솔로 이동' 버튼을 누름. '프로젝트 추가'버튼을 눌러 자신의 프로젝트를 만듬  
+### 1. firebase.google.com에 들어가서 로그인 하고 우측 상단의 '콘솔로 이동' 버튼을 누름. '프로젝트 추가'버튼을 눌러 자신의 프로젝트를 만듬  
 <img width="863" alt="firebase" src="https://user-images.githubusercontent.com/13882302/205473085-8a1656dc-c96a-462f-a681-85ae4f668cc4.png">
 
 ### 2. 프로젝트가 생성되면 realtime database를 클릭해서 생성함  
