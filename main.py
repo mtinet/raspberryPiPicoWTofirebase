@@ -35,8 +35,4 @@ while True:
         
     # 객체 교체하기, 특정 주소의 데이터가 변경됨
     myobj = {'humi': random.randrange(0,100), 'temp': random.randrange(0, 50)}
-    request = urequests.patch(url+"smartFarm.json", json = myobj)
-    request
-    request.close()
-    time.sleep(1)
-
+    urequests.patch(url+"smartFarm.json", json = myobj).json()
