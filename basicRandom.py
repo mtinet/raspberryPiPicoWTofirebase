@@ -7,11 +7,11 @@ import random
 # Connect Internet by WiFi
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect("U+Net454C", "DDAE014478")
+wlan.connect("와이파이 이름", "와이파이 비번")
 print(wlan.isconnected())
 print(wlan.ifconfig())
 
-url = "https://smartfarm-f867f-default-rtdb.firebaseio.com/"
+url = "파이어베이스 리얼타임 데이터베이스 주소"
 
 # DB 내역 가져오기
 response = urequests.get(url+".json").json()
