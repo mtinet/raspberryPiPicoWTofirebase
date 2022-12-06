@@ -4,10 +4,11 @@ let temp = 0;
 let ledStatus = Boolean(false);
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
   background(200);
   
-  button = createButton('click me');
+  button = createButton('LED 제어');
+  button.size(100,80);
   button.position(width*8/10, height*9/10);
   button.mousePressed(ledOnOff);
 
@@ -59,7 +60,7 @@ function errData(err) {
 function draw() {
   background(200);
   fill(0);
-  textSize(80);
+  textSize(windowWidth/5);
   textAlign(CENTER);
   
   text("습도 : " + humi, width / 2, height * 1 / 4);
@@ -67,10 +68,10 @@ function draw() {
   
   if (ledStatus == 0) {
     fill(0, 0, 0);
-    ellipse(width/2, height * 3.5 / 5, 100, 100);
+    ellipse(width/2, height * 3.5 / 5, windowWidth/5, windowWidth/5);
   } else {
     fill(255, 0, 0);
-    ellipse(width/2, height * 3.5 / 5, 100, 100);
+    ellipse(width/2, height * 3.5 / 5, windowWidth/5, windowWidth/5);
   }
 }
 
