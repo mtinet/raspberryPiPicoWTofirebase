@@ -1,5 +1,12 @@
+let button;
+
 function setup() {
   createCanvas(400, 400);
+  background(200);
+  
+  button = createButton('click me');
+  button.position(0, 0);
+  button.mousePressed(changeBG);
 
   // Initialize Firebase
   var config = {
@@ -41,8 +48,11 @@ function errData(err) {
 }
 
 function draw() {
-  background(200);
   textSize(100);
   textAlign(CENTER);
   text("점수", width / 2, height / 2);
+}
+
+function changeBG() {
+  background(random(255), random(255), random(255));
 }
