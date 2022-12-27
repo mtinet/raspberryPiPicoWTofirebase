@@ -165,9 +165,11 @@ curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm.json -
 ```cmd
 curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm/test.json -d {\"dd\":\"ss\"}
 ```
-- Access Token 발급 받기(기본개념: 만들어놓은 파이어베이스 리얼타임 데이터베이스의 비공개 키와 데이터베이스 주소를 이용해 Access Token을 발급받음)  
+- Access Token 발급 받기
+(기본개념: 만들어놓은 파이어베이스 리얼타임 데이터베이스의 비공개 키와 데이터베이스 주소를 이용해 Access Token을 발급받음)  
 ![1](https://user-images.githubusercontent.com/13882302/209633722-17d0f9ea-941c-42e0-9c28-70001cb37828.png)
 
+#### makeAccessToken.py
 ```python
 # Access Token 만드는 방법. 아래 라이브러리를 설치한 다음 사용할 것
 # pip install --upgrade google-auth
