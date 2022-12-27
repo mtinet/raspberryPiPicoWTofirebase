@@ -166,6 +166,8 @@ curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm.json -
 curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm/test.json -d {\"dd\":\"ss\"}
 ```
 - Access Token 발급 받기
+![1](https://user-images.githubusercontent.com/13882302/209633722-17d0f9ea-941c-42e0-9c28-70001cb37828.png)
+
 ```python
 # Access Token 만드는 방법. 아래 라이브러리를 설치한 다음 사용할 것
 # pip install --upgrade google-auth
@@ -180,7 +182,7 @@ scopes = [
 
 # Authenticate a credential with the service account
 # 서비스 계정으로 자격 증명 인증
-credentials = service_account.Credentials.from_service_account_file("파이어베이스의 서비스 계정 탭에서 다운로드 받은 비공개 키의 위치 및 파일명.json", scopes=scopes)
+credentials = service_account.Credentials.from_service_account_file("<파이어베이스의 서비스 계정 탭에서 다운로드 받은 비공개 키의 위치 및 파일명>.json", scopes=scopes)
 
 # Use the credentials object to authenticate a Requests session.
 # 자격 증명 개체를 사용하여 요청 세션을 인증합니다.
