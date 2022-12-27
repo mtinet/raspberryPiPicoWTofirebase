@@ -193,7 +193,7 @@ response = authed_session.get("https://<파이어베이스 리얼타임 데이�
 access_token = credentials.token
 print(access_token)
 ```
-
+- Access Token을 사용해서 쓰기 규칙이 false인 firebase realtime DB에 데이터 올리기
 ```cmd
 curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm/test.json?access_token=<위 파일로 생성된 Access Token> -d {\"key\":\"value\"
 ```
