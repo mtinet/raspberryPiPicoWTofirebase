@@ -152,6 +152,7 @@ PASSWORD = "DDAE014478"
 ## curl 사용해서 firebase realrime database(RTDB) 다루기  
 - cmd창을 열고 다음과 같이 명령어를 치면 됨. json 데이터 안의 따옴표가 인식이 안되므로 앞에 이스케이프 시퀀스로 작성해줘야 함  
 - 백슬래시(\) 뒤에 한 문자나 숫자 조합이 오는 문자 조합을 “이스케이프 시퀀스”라고 합니다. 줄 바꿈 문자, 작은따옴표, 또는 문자 상수의 다른 특정 문자를 나타내려면 이스케이프 시퀀스를 사용해야 합니다. 이스케이프 시퀀스는 단일 문자로 간주되므로 문자 상수로 유효합니다.
+- GET, POST(독립 ID를 부여하여 추가하기), PUT(모든 리소스 업데이트), PATCH(해당 리소스 업데이트), DELETE 사용 가능
 - RTDB 메인에 올리기
 ```cmd
 curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/.json -d {\"dd\":\"ss\"}
