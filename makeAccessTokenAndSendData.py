@@ -31,5 +31,9 @@ url = "https://smartfarm-f867f-default-rtdb.firebaseio.com/"
 
 # 객체 교체하기, patch는 특정 주소의 데이터가 변경됨
 myobj = {'humi': random.randrange(0,100), 'temp': random.randrange(0, 50)}
+
+# 아래는 RTDB의 쓰기 권한이 true일 때 사용
 # requests.patch(url+"smartFarm.json", json = myobj).json()
+
+# 아래는 RTDB의 쓰기 권한이 false일 때 사용, 위에서 만든 Access_token을 붙여서 데이터를 보냄
 requests.patch(url+"smartFarm.json" + "?access_token=" + access_token, json = myobj).json()
