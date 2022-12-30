@@ -36,7 +36,7 @@ function setup() {
 }
 
 function draw() {
-  background(200, 150, 100);
+  background(100, 220, 70);
   
   fill(0);
   textSize(windowWidth/5);
