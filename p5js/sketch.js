@@ -45,23 +45,23 @@ function draw() {
   text("스마트 팜", width / 2, height * 1 / 6);
   textSize(windowWidth/8)
   text("습도 : " + humi, width / 2, height * 2 / 6);
-  text("온도 : " + temp, width / 2, height * 2.5 / 6);
-  text("조도 : " + light, width / 2, height * 3 / 6);
+  text("온도 : " + temp, width / 2, height * 3 / 6);
+  text("조도 : " + light, width / 2, height * 4 / 6);
   
   if (ledStatus == 0) {
     fill(0, 0, 0);
-    ellipse(width/3, height * 3.5 / 5, windowWidth/5, windowWidth/5);
+    ellipse(width*2/10, height*8/10, windowWidth/10, windowWidth/10);
   } else {
     fill(255, 0, 0);
-    ellipse(width/3, height * 3.5 / 5, windowWidth/5, windowWidth/5);
+    ellipse(width*2/10, height*8/10, windowWidth/10, windowWidth/10);
   }
   
   if (fanStatus == 0) {
     fill(0, 0, 0);
-    ellipse(width * 3/4, height * 3.5 / 5, windowWidth/5, windowWidth/5);
+    ellipse(width*6/10, height*8/10, windowWidth/10, windowWidth/10);
   } else {
     fill(255, 0, 0);
-    ellipse(width * 3/4, height * 3.5 / 5, windowWidth/5, windowWidth/5);
+    ellipse(width*6/10, height*8/10, windowWidth/10, windowWidth/10);
   }
   
   // led 버튼
