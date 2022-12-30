@@ -7,17 +7,17 @@ let led;
 let fan;
 let button1;
 let button2;
-//let minGyeong;
+let minGyeong;
 
 function preload() {
   led = loadImage('assets/led.png');
   fan = loadImage('assets/fan.png');
-  //minGyeong = loadFont('assets/NanumYeBbeunMinGyeongCe.ttf');
+  minGyeong = loadFont('assets/NanumYeBbeunMinGyeongCe.ttf');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //textFont(minGyeong);
+  textFont(minGyeong);
   
   // Initialize Firebase
   var config = {
