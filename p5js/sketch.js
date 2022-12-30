@@ -151,7 +151,7 @@ function gotData(data) {
     //console.log(k)
     var v = values[i];
     //console.log(v);
-    console.log(k + ":" + v);
+    //console.log(k + ":" + v);
   }
 }
 
