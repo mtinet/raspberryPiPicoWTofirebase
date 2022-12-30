@@ -50,18 +50,18 @@ function draw() {
   
   if (ledStatus == 0) {
     fill(0, 0, 0);
-    ellipse(width*2/10, height*8/10, windowWidth/10, windowWidth/10);
+    ellipse(width*2/10, height*8/10, 50, 50);
   } else {
     fill(255, 0, 0);
-    ellipse(width*2/10, height*8/10, windowWidth/10, windowWidth/10);
+    ellipse(width*2/10, height*8/10, 50, 50);
   }
   
   if (fanStatus == 0) {
     fill(0, 0, 0);
-    ellipse(width*6/10, height*8/10, windowWidth/10, windowWidth/10);
+    ellipse(width*6/10, height*8/10, 50, 50);
   } else {
     fill(255, 0, 0);
-    ellipse(width*6/10, height*8/10, windowWidth/10, windowWidth/10);
+    ellipse(width*6/10, height*8/10, 50, 50);
   }
   
   // led 버튼
