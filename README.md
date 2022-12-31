@@ -209,6 +209,10 @@ curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm/test.j
 <img width="486" alt="5" src="https://user-images.githubusercontent.com/13882302/210126572-06993b24-c823-40ce-959c-508d1000b93f.png">
 
 
+https://user-images.githubusercontent.com/13882302/210126579-f2bc97b3-345b-4512-8c5c-3bb6fb0ac6a5.mp4
+
+
+
 
 ---
 ## firebase to Node-RED
