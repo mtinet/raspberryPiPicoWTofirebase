@@ -200,6 +200,15 @@ print(access_token)
 curl -X PUT https://smartfarm-f867f-default-rtdb.firebaseio.com/smartFarm/test.json?access_token=<위 파일로 생성된 Access Token> -d {\"key\":\"value\"
 ```
 
+---
+## firebase에 사용자 계정을 등록하고, 해당 계정이 있는 사람에게 Access Token을 발급하여 RTDB에 쓰기 권한을 허용하는 과정  
+<img width="843" alt="1" src="https://user-images.githubusercontent.com/13882302/210126564-7c05219e-9ac2-4c5c-939c-d7f9347f2ce2.png">
+<img width="791" alt="2" src="https://user-images.githubusercontent.com/13882302/210126566-405309b3-a17b-4198-ae16-1d21fe90b3f9.png">
+<img width="787" alt="3" src="https://user-images.githubusercontent.com/13882302/210126569-2d0a962b-0118-48f6-bd8a-8e53a25eafa0.png">
+<img width="844" alt="4" src="https://user-images.githubusercontent.com/13882302/210126570-c82c36b9-53d0-4b0e-90a1-97adebdc24b8.png">
+<img width="486" alt="5" src="https://user-images.githubusercontent.com/13882302/210126572-06993b24-c823-40ce-959c-508d1000b93f.png">
+
+
 
 ---
 ## firebase to Node-RED
