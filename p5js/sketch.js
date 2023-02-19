@@ -1,4 +1,4 @@
-let humi = 0;
+let mois = 0;
 let temp = 0;
 let light = 0;
 let fanStatus = Boolean(false);
@@ -44,7 +44,7 @@ function draw() {
   
   text("스마트 팜", width / 2, height * 1 / 6);
   textSize(windowWidth/8)
-  text("습도 : " + humi, width / 2, height * 2 / 6);
+  text("수분 : " + mois, width / 2, height * 2 / 6);
   text("온도 : " + temp, width / 2, height * 3 / 6);
   text("조도 : " + light, width / 2, height * 4 / 6);
   
@@ -137,12 +137,12 @@ function gotData(data) {
   var values = Object.values(val);
   //console.log(values);
   
-  humi = val.humi;
+  mois = val.mois;
   temp = val.temp;
   light = val.light;
   ledStatus = val.led;
   fanStatus = val.fan;
-  //console.log(val.humi)
+  //console.log(val.mois)
   //console.log(val.temp)
   //console.log(val.light)
   
