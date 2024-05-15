@@ -2,6 +2,7 @@ from machine import Pin, I2C
 import network
 import time
 import urequests
+import random
 
 # 와이파이 정보 
 SSID = 'U+Net03CC'
@@ -31,7 +32,7 @@ url = "파이어베이스 리얼타임 데이터베이스 주소"
 
 # DB 내역 가져오기
 response = urequests.get(url+".json").json()
-# print(response)
+print(response)
 # print(response['smartFarm'])
 # print(response['smartFarm']['led'])
 
@@ -41,6 +42,6 @@ while True:
     # 객체 교체하기, 특정 주소의 데이터가 변경됨
     myobj = {'humi': random.randrange(0,100), 'temp': random.randrange(0, 50)}
     request = urequests.patch(url+"smartFarm.json", json = myobj)
-    request
+    print(myobj)
     request.close()
     time.sleep(1)
