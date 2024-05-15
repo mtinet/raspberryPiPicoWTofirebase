@@ -1,2 +1,2 @@
-SSID = "U+Net454C"
-PASSWORD = "DDAE014478"
+SSID = 'U+Net03CC'
+password = 'J6FDFE#490'
