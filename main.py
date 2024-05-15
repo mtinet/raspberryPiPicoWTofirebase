@@ -28,20 +28,21 @@ def wifiConnect():
 # 와이파이 함수 실행
 wifiConnect()
 
-led = Pin(22, Pin.OUT)
+controlPin = Pin(22, Pin.OUT)
 
-url = "자신의 파이어베이스 리얼타임 데이터베이스 주소를 넣을 것"
+url = "https://iot-project-3c0b1-default-rtdb.firebaseio.com/"
 
 # DB 내역 가져오기
 response = urequests.get(url+".json").json()
+
 # byte형태의 데이터를 json으로 변경했기 때문에 메모리를 닫아주는 일을 하지 않아도 됨 
 print(response)
-# print(response['smartFarm'])
-# print(response['smartFarm']['led'])
+
+# led(22번핀)에 LOW값을 인가함
+controlPin.value(0)
 
 # 객체 초기화, 'led'를 '0'으로 설정함.
-led.value(0)
-myobj = {'led': 0}
+myobj = {'controlPin': 0}
 urequests.patch(url+".json", json = myobj)
 
 
@@ -49,7 +50,9 @@ while True:
     # 현재 DB의 정보를 가져옴
     response = urequests.get(url+".json").json()
     # 현재 DB의 led 키 값의 상태에 따라 led 27번을 제어
-    if (response['led'] == 0) :
-        led.value(0)
+    if (response['controlPin'] == 0) :
+        controlPin.value(0)
+        # print("Control Pin is Off.")
     else :
-        led.value(1)
+        controlPin.value(1)
+        # print("Control Pin is On.")
