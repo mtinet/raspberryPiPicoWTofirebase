@@ -1,8 +1,8 @@
-from machine import Pin, I2C
+from machine import Pin, reset
 import network
 import time
 import urequests
-import random
+import gc
 
 # 와이파이 정보 
 SSID = 'U+Net03CC'
@@ -13,46 +13,84 @@ def wifiConnect():
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     if not wlan.isconnected():
-        # 와이파이 연결하기
-        wlan.connect(SSID, password)  # 5, 6번 줄에 입력한 SSID와 password가 입력됨
-        print("Waiting for Wi-Fi connection", end="...")
-        print()
+        wlan.connect(SSID, password)
+        print("Waiting for Wi-Fi connection", end="")
         while not wlan.isconnected():
             print(".", end="")
             time.sleep(1)
-    else:
-        print(wlan.ifconfig())
-        print("WiFi is Connected")
         print()
+    print(wlan.ifconfig())
+    print("WiFi is Connected")
+    return wlan
+
+# 주기적으로 연결 확인 및 재연결
+def maintain_connection(wlan):
+    if not wlan.isconnected():
+        print('WiFi lost, reconnecting...')
+        wlan.disconnect()
+        wlan.connect(SSID, password)
+        while not wlan.isconnected():
+            print('Reconnecting...')
+            time.sleep(1)
+        print('Reconnected')
 
 # 와이파이 함수 실행
-wifiConnect()
+wlan = wifiConnect()
 
+# 22번 핀을 출력으로 설정
 controlPin = Pin(22, Pin.OUT)
 
-url = "https://iot-project-3c0b1-default-rtdb.firebaseio.com/"
+# firebase 리얼타임 데이터베이스 주소
+url = "자신의 firebase RTDB주소"
 
-# DB 내역 가져오기
-response = urequests.get(url+".json").json()
+print("IoT System is Started.")
 
-# byte형태의 데이터를 json으로 변경했기 때문에 메모리를 닫아주는 일을 하지 않아도 됨 
-print(response)
+# Firebase 데이터 초기화 함수
+def initialize_firebase():
+    try:
+        # firebase의 값을 확인하고, 아무값도 없거나 controlPin 키가 없으면 controlPin 키를 만들고 0으로 초기화 함
+        response = urequests.get(url + ".json").json()
+        if response is None or 'controlPin' not in response:
+            print("controlPin not found in Firebase, initializing to 0")
+            urequests.patch(url + ".json", json={'controlPin': 0})
+            return 0
+        # firebase에 controlPin 키가 있으면, 해당 값을 반환 함
+        return response['controlPin']
+    except Exception as e:
+        print('Error occurred while initializing Firebase:', e)
+        return 0
 
-# led(22번핀)에 LOW값을 인가함
-controlPin.value(0)
+# 초기 설정, firebase에 저장된 값을 확인하고 Pico W를 초기화 
+initial_controlPin_value = initialize_firebase()
+controlPin.value(initial_controlPin_value)
 
-# 객체 초기화, 'led'를 '0'으로 설정함.
-myobj = {'controlPin': 0}
-urequests.patch(url+".json", json = myobj)
+# 메인루프
+def main_loop():
+    last_check = time.time()
+    while True:
+        try:
+            # 실시간으로 Firebase 데이터 가져오기
+            response = urequests.get(url + ".json").json()
+            if response and 'controlPin' in response:
+                if response['controlPin'] == 0:
+                    controlPin.value(0)
+                else:
+                    controlPin.value(1)
 
+            # 10분마다 Wi-Fi 연결 확인 및 재연결
+            current_time = time.time()
+            if current_time - last_check > 600:
+                maintain_connection(wlan)
+                last_check = current_time
 
-while True:
-    # 현재 DB의 정보를 가져옴
-    response = urequests.get(url+".json").json()
-    # 현재 DB의 led 키 값의 상태에 따라 led 27번을 제어
-    if (response['controlPin'] == 0) :
-        controlPin.value(0)
-        # print("Control Pin is Off.")
-    else :
-        controlPin.value(1)
-        # print("Control Pin is On.")
+            # 메모리 관리
+            gc.collect()
+            time.sleep(1)  # 1초마다 데이터 체크
+
+        except Exception as e:
+            print('Error occurred:', e)
+            reset()  # 시스템 재시작
+
+# 메인 프로그램 실행
+main_loop()
+
